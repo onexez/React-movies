@@ -1,5 +1,11 @@
 function Movie(props) {
-  const { Title: title, Year: year, imdbID: id, Type: type, Poster: poster } = props;
+  const {
+    Title: title,
+    Year: year,
+    imdbID: id,
+    Type: type,
+    Poster: poster,
+  } = props;
 
   return (
     <div className="card">
@@ -14,7 +20,9 @@ function Movie(props) {
         )}
       </div>
       <div className="card-content">
-        <span className="card-title activator grey-text text-darken-4">{title}</span>
+        <span className="card-title activator grey-text text-darken-4">
+          {title}
+        </span>
         <p>
           {year} <span className="right">{type}</span>
         </p>
