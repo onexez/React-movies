@@ -12,8 +12,12 @@ class Search extends React.Component {
     }
   };
   handleFilter = (e) => {
-    this.setState(() => ({ type: e.target.dataset.type }));
-    this.props.searchMovies(this.state.search, this.state.type);
+    this.setState(
+      () => ({ type: e.target.dataset.type }),
+      () => {
+        this.props.searchMovies(this.state.search, this.state.type);
+      }
+    );
   };
   render() {
     return (
@@ -32,7 +36,9 @@ class Search extends React.Component {
           ></input>
           <button
             className="btn search-btn"
-            onClick={() => this.props.searchMovies(this.state.search, this.state.type)}
+            onClick={() =>
+              this.props.searchMovies(this.state.search, this.state.type)
+            }
           >
             Search
           </button>
