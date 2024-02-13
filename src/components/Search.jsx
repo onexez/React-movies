@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Search = (props) => {
   const { searchMovies = Function.prototype } = props;
 
-  const [search, setSearch] = useState('');
-  const [type, setType] = useState('all');
+  const [search, setSearch] = useState("");
+  const [type, setType] = useState("all");
 
+  //Поиск по нажатию Enter
   const hendleKey = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       searchMovies(search, type);
     }
   };
@@ -30,10 +31,7 @@ const Search = (props) => {
           }}
           onKeyDown={hendleKey}
         ></input>
-        <button
-          className="btn search-btn"
-          onClick={() => searchMovies(search, type)}
-        >
+        <button className="btn search-btn" onClick={() => searchMovies(search, type)}>
           Search
         </button>
         <div>
@@ -43,7 +41,7 @@ const Search = (props) => {
               type="radio"
               data-type="all"
               onChange={handleFilter}
-              checked={type === 'all'}
+              checked={type === "all"}
             />
             <span>All</span>
           </label>
@@ -53,7 +51,7 @@ const Search = (props) => {
               type="radio"
               data-type="movie"
               onChange={handleFilter}
-              checked={type === 'movie'}
+              checked={type === "movie"}
             />
             <span>Movies only</span>
           </label>
@@ -63,7 +61,7 @@ const Search = (props) => {
               type="radio"
               data-type="series"
               onChange={handleFilter}
-              checked={type === 'series'}
+              checked={type === "series"}
             />
             <span>Series only</span>
           </label>

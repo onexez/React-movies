@@ -1,7 +1,7 @@
-import { Movies } from '../components/Movies';
-import { Preloader } from '../components/Preloader';
-import { Search } from '../components/Search';
-import { useEffect, useState } from 'react';
+import { Movies } from "../components/Movies";
+import { Preloader } from "../components/Preloader";
+import { Search } from "../components/Search";
+import { useEffect, useState } from "react";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -9,12 +9,11 @@ function Main() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const searchMovies = (str, type = 'all') => {
+  //Поиск фильма/сериала
+  const searchMovies = (str, type = "all") => {
     setLoading(true);
     fetch(
-      `https://www.omdbapi.com/?apikey=${API_KEY}&s=${str}${
-        type !== 'all' ? `&type=${type}` : ''
-      }`
+      `https://www.omdbapi.com/?apikey=${API_KEY}&s=${str}${type !== "all" ? `&type=${type}` : ""}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -26,6 +25,7 @@ function Main() {
       });
   };
 
+  //Запрос при первом рендере
   useEffect(() => {
     fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=galaxy`)
       .then((response) => response.json())
